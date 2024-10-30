@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Flutter Upgrade 
+      - run: flutter upgrade
+    
       - uses: actions/checkout@v2
 
       - name: Set up Flutter
