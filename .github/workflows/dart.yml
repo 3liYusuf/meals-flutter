@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Flutter Upgrade 
-      - run: flutter upgrade
+        run: flutter upgrade
     
       - uses: actions/checkout@v2
 
