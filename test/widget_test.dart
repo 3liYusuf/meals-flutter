@@ -8,7 +8,7 @@ void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Wrap your test widget in a ProviderScope
     await tester.pumpWidget(
-      ProviderScope(
+      const ProviderScope(
         child: MaterialApp(
           home: const TabsScreen(),
         ),
