@@ -25,6 +25,19 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      - name: Run SonarQube Scan
+        env:
+          SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
+        run: |
+          curl --create-dirs -sSLo $HOME/.sonar/sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-6.2.1.4610-linux-x64.zip
+          unzip -o $HOME/.sonar/sonar-scanner.zip -d $HOME/.sonar/
+
+      - name: Build and analyze SonarQube
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: $HOME/.sonar/sonar-scanner-6.2.1.4610-linux-x64/bin/sonar-scanner
+
       - name: Analyze project source
         run: flutter analyze
 
