@@ -10,7 +10,7 @@ void main() {
     await tester.pumpWidget(
       const ProviderScope(
         child: MaterialApp(
-          home: const TabsScreen(),
+          home: TabsScreen(),
         ),
       ),
     );
