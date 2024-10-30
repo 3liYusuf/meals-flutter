@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:meals/models/category.dart';
 import 'package:meals/models/meal.dart';
 
+const oneOnion = '1 Onion';
 // Constants in Dart should be written in lowerCamelcase.
 const availableCategories = [
   Category(
@@ -73,7 +74,7 @@ const dummyMeals = [
     ingredients: [
       '4 Tomatoes',
       '1 Tablespoon of Olive Oil',
-      '1 Onion',
+      oneOnion,
       '250g Spaghetti',
       'Spices',
       'Cheese (optional)'
@@ -136,7 +137,7 @@ const dummyMeals = [
       '300g Cattle Hack',
       '1 Tomato',
       '1 Cucumber',
-      '1 Onion',
+      oneOnion,
       'Ketchup',
       '2 Burger Buns'
     ],
@@ -303,7 +304,7 @@ const dummyMeals = [
     duration: 35,
     ingredients: [
       '4 Chicken Breasts',
-      '1 Onion',
+      oneOnion,
       '2 Cloves of Garlic',
       '1 Piece of Ginger',
       '4 Tablespoons Almonds',
