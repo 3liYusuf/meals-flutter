@@ -29,6 +29,9 @@ jobs:
           flutter-version: '2.0'
           channel: 'stable'
 
+      - name: Configure Git safe directory
+        run: git config --global --add safe.directory /__t/flutter/stable-2.0.6-x64
+
       - name: Flutter Upgrade
         run: flutter upgrade
 
@@ -46,7 +49,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: $HOME/.sonar/sonar-scanner-6.2.1.4610-linux-x64/bin/sonar-scanner
+        run: |
+          $HOME/.sonar/sonar-scanner-6.2.1.4610-linux-x64/bin/sonar-scanner \
+          -Dsonar.c.file.suffixes=- \
+          -Dsonar.cpp.file.suffixes=- \
+          -Dsonar.objc.file.suffixes=-
           
       - name: Analyze project source
         run: flutter analyze
