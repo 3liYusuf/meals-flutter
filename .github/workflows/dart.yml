@@ -1,0 +1,38 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: Flutter
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 'stable'
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      # Uncomment this step to verify the use of 'flutter format' on each commit.
+      # - name: Verify formatting
+      #   run: flutter format --set-exit-if-changed .
+
+      - name: Analyze project source
+        run: flutter analyze
+
+      # Your project will need to have tests in test/ and a dependency on
+      # package:test for this step to succeed.
+      - name: Run tests
+        run: flutter test
