@@ -5,7 +5,6 @@ class SelectedCategoryProvider extends StateNotifier<String> {
 
   void setCategoryId(String categoryId) {
     state = categoryId;
-    print(categoryId);
   }
 }
 
