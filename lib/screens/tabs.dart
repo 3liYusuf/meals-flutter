@@ -34,18 +34,18 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
     });
   }
 
-  void _setScreen(String identifier) async {
+  void _setScreen(String identifier) {
     Navigator.of(context).pop();
 
     if (identifier == 'filters') {
-      await Navigator.of(context).push<Map<Filter, bool>>(
+      Navigator.of(context).push<Map<Filter, bool>>(
         MaterialPageRoute(
           builder: (ctx) => const FiltersScreen(),
         ),
       );
     }
     if (identifier == 'meals') {
-      await Navigator.of(context).pushReplacement(
+      Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (ctx) => const TabsScreen()));
     }
   }
